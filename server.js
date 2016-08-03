@@ -23,7 +23,7 @@ app.get('/', function(req, res) {
 app.get('/api/news', function(req, res) {
   var articleData = [];
 
-  request('https://news.vice.com/', function(err, res, body) {
+  request('https://news.vice.com/', function(err, response, body) {
     var $ = cheerio.load(body);
     var $articles = $('.widget-list > .in-the-news-list-item');
 
@@ -36,8 +36,8 @@ app.get('/api/news', function(req, res) {
       articleInfo.desc  = $article.find('.article-one-liner').text();
       articleData.push(articleInfo);
     });
+    res.send(articleData);
   });
-  res.send(articleData);
 
 });
 
