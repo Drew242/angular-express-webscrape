@@ -13,7 +13,9 @@ app.use(logger('dev'));
 
 // Routes //
 app.get('/', function(req, res) {
-  res.send('index.html');
+  res.sendFile('index.html', {
+    root : './public/html' 
+  });
 })
 
 // Listen //

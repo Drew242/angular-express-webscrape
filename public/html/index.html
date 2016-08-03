@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html>
-<head data-ng-app='ViceCity'>
+<html ng-app='ViceCity'>
+<head>
   <title> Vice City </title>
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'/>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -9,9 +9,10 @@
   <script src='/js/app.module.js'></script>
   <script src='/js/app.controller.home.js'></script>
 </head>
-<body data-ng-controller='homeController as hCtrl'>
+<body ng-controller='homeController as hCtrl'>
   <h1>Welcome to Vice City</h1>
   <h2>{{ hCtrl.welcomeMessage }}</h2>
 
+  <button class='btn btn-success' ng-click='hCtrl.getTheNews()'>Get the News!</button>
 </body>
 </html>
