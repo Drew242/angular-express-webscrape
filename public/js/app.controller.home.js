@@ -1,11 +1,21 @@
-viceCity.controller('homeController', homeController);
+viceCity.controller('homeController', [
+  '$http',
+  homeController
+]);
 
-function homeController() {
+function homeController($http) {
   var hCtrl = this;
 
   hCtrl.welcomeMessage = 'Your home for sweet, sweet news';
+
   hCtrl.getTheNews = function() {
-      console.log("Wow! Much News!");
+
+      $http.get('/api/news')
+        .then(function(response) {
+          hCtrl.news = response.data;
+          console.log(response.data);
+        });
+
   };
 
 }
